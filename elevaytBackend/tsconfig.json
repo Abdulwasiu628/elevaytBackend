@@ -1,0 +1,21 @@
+{
+  "compilerOptions":{
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "ES2015",
+    "module": "commonjs",
+    "skipLibCheck": true
+    
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended"
+}
