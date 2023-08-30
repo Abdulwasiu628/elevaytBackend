@@ -18,7 +18,7 @@ import extraRouter from "@/routes/extras"
 dotenv.config()
 const app = express();
 const corsOptions = cors({
-  origin: process.env.LOCALHOST,
+  origin: [String(process.env.LOCALHOST), String(process.env.URL)],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
