@@ -7,8 +7,6 @@ import {
   errorWithData,
   successWithData,
 } from "../utils/apiResponses";
-import * as readline from "readline";
-import chalk from "chalk";
 import OpenAI from "openai";;
 import dotenv from "dotenv";
 
