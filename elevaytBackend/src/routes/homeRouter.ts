@@ -1,12 +1,10 @@
 import express from 'express';
 import { getLogger } from '@/utils/loggers';
+import { getHomePage } from '@/controllers/index.ctrl';
 const router = express.Router();
 const logger = getLogger('INDEX_ROUTE');
 
 /* GET home page. */
-router.get('/', function (_req, res, _next) {
-  logger.info('hello Express');
-  res.render('index', { title: 'Express' });
-});
+router.get('/', getHomePage)
 
 export default router;

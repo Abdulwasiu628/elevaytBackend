@@ -1,21 +1,25 @@
-import express from "express";
+import { Request, Response, NextFunction } from "express";
 import { getLogger } from "@/utils/loggers";
 import dotenv from "dotenv";
-const router = express.Router();
 const logger = getLogger("Stripe route");
-
 dotenv.config();
+import {
+  successResponse,
+  errorResponse,
+  errorWithData,
+  successWithData,
+} from "../utils/apiResponses";
+
 
 const stripeSecret = process.env.STRIPE_SECRET;
 const stripeKey = process.env.STRIP_KEY;
-
-/* GET home page. */
 const stripe = require("stripe")(stripeSecret);
 
-router.post("/create-payment-intent", async (req, res) => {
+
+export const postStripePayment = async (req: Request, res: Response) => {
   const { amount, currency } = req.body;
-  
-  console.log(amount, currency)
+
+  console.log(amount, currency);
   try {
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
@@ -27,8 +31,4 @@ router.post("/create-payment-intent", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Error creating payment intent" });
   }
-});
-
-
-
-export default router;
+};

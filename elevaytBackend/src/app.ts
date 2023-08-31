@@ -3,17 +3,16 @@ import express, { RequestHandler, ErrorRequestHandler  } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import { server } from '../bin/www';
-import { Server } from "socket.io";
 import cors from "cors";
 import dotenv from "dotenv";
 
 
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
-//import chatRouter from "@/routes/chat"
-import stripeRouter from "@/routes/stripe"
-import extraRouter from "@/routes/extras"
+import indexRouter from './routes/homeRouter';
+import usersRouter from './routes/usersRouter';
+//import chatRouter from "@/routes/chatRouter";
+import stripeRouter from "@/routes/stripeRouter";
+import extraRouter from "@/routes/extrasRouter";
+import chatgptRouter from "@/routes/chatgptRouter";
 
 dotenv.config()
 const app = express();
@@ -37,9 +36,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
+//app.use("/chat", chatRouter)
 app.use('/users', usersRouter);
 app.use("/extra", extraRouter)
-app.use("/pay", stripeRouter )
+app.use("/stripe", stripeRouter )
+app.use("/gpt", chatgptRouter)
 
 
 
