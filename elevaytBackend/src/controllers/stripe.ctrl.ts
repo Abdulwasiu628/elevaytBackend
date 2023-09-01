@@ -16,7 +16,10 @@ const stripeKey = process.env.STRIP_KEY;
 const stripe = require("stripe")(stripeSecret);
 
 stripe.applePayDomains.create({
-  domain_name: "example.com",
+  domain_name: [
+    "https://elevayt.onrender.com",
+    "https://elevayt-frontend.vercel.app",
+  ],
 });
 export const postStripePayment = async (req: Request, res: Response) => {
   const { amount, currency } = req.body;
