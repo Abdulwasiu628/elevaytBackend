@@ -50,8 +50,8 @@ const requestHandler: RequestHandler = function (_req, _res, next) {
 }
 app.use(requestHandler);
 app.use(
-  "/.well-known/apple-developer-merchantid-domain-association",
-  express.static(path.join(__dirname, ".well-known/apple-developer-merchantid-domain-association"))
+  "/.well-known",
+  express.static(path.join(__dirname, "public"))
 );
 // error handler
 const errorRequestHandler: ErrorRequestHandler = function (
