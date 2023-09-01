@@ -49,7 +49,7 @@ const requestHandler: RequestHandler = function (_req, _res, next) {
   next(createError(404));
 }
 app.use(requestHandler);
-
+app.use("/.well-known", express.static(path.join(__dirname, ".well-known")));
 // error handler
 const errorRequestHandler: ErrorRequestHandler = function (
   err,
