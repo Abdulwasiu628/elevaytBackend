@@ -49,7 +49,10 @@ const requestHandler: RequestHandler = function (_req, _res, next) {
   next(createError(404));
 }
 app.use(requestHandler);
-app.use("/.well-known", express.static(path.join(__dirname, ".well-known")));
+app.use(
+  "/.well-known/apple-developer-merchantid-domain-association",
+  express.static(path.join(__dirname, ".well-known/apple-developer-merchantid-domain-association"))
+);
 // error handler
 const errorRequestHandler: ErrorRequestHandler = function (
   err,
