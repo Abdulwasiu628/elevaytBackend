@@ -3,6 +3,6 @@ import { getChat } from "@/controllers/chatgpt.ctrl";
 
 const router = express.Router();
 
-router.get("/getChat", getChat);
+router.post("/getChat", getChat);
 
 export default router;
