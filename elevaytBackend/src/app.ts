@@ -13,6 +13,7 @@ import usersRouter from './routes/usersRouter';
 import stripeRouter from "@/routes/stripeRouter";
 import extraRouter from "@/routes/extrasRouter";
 import chatgptRouter from "@/routes/chatgptRouter";
+import financeRouter from "@/routes/financeRouter";
 
 dotenv.config()
 const app = express();
@@ -41,6 +42,7 @@ app.use('/users', usersRouter);
 app.use("/extra", extraRouter)
 app.use("/stripe", stripeRouter )
 app.use("/gpt", chatgptRouter)
+app.use("/", financeRouter)
 
 
 

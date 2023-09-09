@@ -20,7 +20,8 @@
     "openai": "^4.3.1",
     "rimraf": "^3.0.2",
     "socket.io": "^4.7.2",
-    "stripe": "^13.3.0"
+    "stripe": "^13.3.0",
+    "yahoo-finance2": "^2.5.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.0",
